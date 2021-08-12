@@ -48,12 +48,6 @@ const options = {
 // https://github.com/LionC/express-basic-auth/issues/14
 app.use(basicAuth(options));
 
-app.get("/logout", function (req, res) {
-  res.set("WWW-Authenticate", 'Basic realm="tutorial"');
-  res.redirect("/");
-  return res.sendStatus(401);
-});
-
 app.get("/", (req, res) => {
   db.collection("items")
     .find()
@@ -69,7 +63,6 @@ app.get("/", (req, res) => {
         </head>
         
         <body>
-        <a href="/logout">logout</a>
           <div class="container">
             <h1 class="display-4 text-center py-1">To-Do App</h1>
             
