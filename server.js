@@ -1,12 +1,12 @@
 const express = require("express");
 const app = express();
-https://docs.microsoft.com/ja-jp/azure/app-service/configure-language-nodejs?pivots=platform-linux#get-port-number
+//https://docs.microsoft.com/ja-jp/azure/app-service/configure-language-nodejs?pivots=platform-linux#get-port-number
 const port = process.env.PORT || 3000;
 
 const mongodb = require("mongodb");
 const mongoClient = mongodb.MongoClient;
-https://docs.microsoft.com/ja-jp/azure/app-service/configure-common#configure-connection-strings
-https://docs.microsoft.com/ja-jp/azure/app-service/configure-language-nodejs?pivots=platform-linux#access-environment-variables
+//https://docs.microsoft.com/ja-jp/azure/app-service/configure-common#configure-connection-strings
+//https://docs.microsoft.com/ja-jp/azure/app-service/configure-language-nodejs?pivots=platform-linux#access-environment-variables
 const url = process.env.CUSTOMCONNSTR_mongodburl;
 let db;
 let sanitizeHTML = require("sanitize-html");
