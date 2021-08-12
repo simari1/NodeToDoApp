@@ -15,9 +15,15 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+console.log""("!!!!url is " + url);
+
 mongoClient.connect(url, function (err, client) {
-  db = client.db("ToDoApp");
-  app.listen(port, () => console.log(`Example app listening on port port!`));
+  if (err) {
+    console.error("An error occurred connecting to MongoDB: ", err);
+  } else {
+    const db = client.db("ToDoApp");
+    app.listen(port, () => console.log(`Example app listening on port port!`));
+  }
 });
 
 //https://qiita.com/hiroyky/items/a16dc3315b06fd04c72a
