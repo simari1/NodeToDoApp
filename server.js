@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const conf = require('config');
 //https://docs.microsoft.com/ja-jp/azure/app-service/configure-language-nodejs?pivots=platform-linux#get-port-number
 const port = process.env.PORT || 3000;
 
@@ -7,15 +8,14 @@ const mongodb = require("mongodb");
 const mongoClient = mongodb.MongoClient;
 //https://docs.microsoft.com/ja-jp/azure/app-service/configure-common#configure-connection-strings
 //https://docs.microsoft.com/ja-jp/azure/app-service/configure-language-nodejs?pivots=platform-linux#access-environment-variables
-const url = process.env.CUSTOMCONNSTR_mongodburl;
+//https://dev.classmethod.jp/articles/config/
+const url = process.env.CUSTOMCONNSTR_mongodburl || conf.dev.cnstr;
 let db;
 let sanitizeHTML = require("sanitize-html");
 
 app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-
-console.log("!!!!url is " + url);
 
 mongoClient.connect(url, function (err, client) {
   if (err) {

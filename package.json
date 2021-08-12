@@ -5,12 +5,14 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"No test specified\"",
-    "start": "nodemon server.js"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "config": "^3.3.6",
     "express": "^4.17.1",
     "express-basic-auth": "^1.2.0",
     "mongodb": "^4.1.0",
