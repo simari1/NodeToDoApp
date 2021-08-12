@@ -15,7 +15,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-console.log""("!!!!url is " + url);
+console.log("!!!!url is " + url);
 
 mongoClient.connect(url, function (err, client) {
   if (err) {
