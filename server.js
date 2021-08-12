@@ -21,7 +21,7 @@ mongoClient.connect(url, function (err, client) {
   if (err) {
     console.error("An error occurred connecting to MongoDB: ", err);
   } else {
-    const db = client.db("ToDoApp");
+    db = client.db("ToDoApp");
     app.listen(port, () => console.log(`Example app listening on port port!`));
   }
 });
